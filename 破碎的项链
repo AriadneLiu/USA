@@ -1,0 +1,29 @@
+'''with open('beads.txt','r') as fin:
+    N=int(fin.readline().strip())
+    s=fin.readline().strip()'''
+N=3
+s='rrr'
+def brea(x,a):
+    return (a[x:]+a[:x])
+maxium=0
+def count(color,a):
+    if a==[] or (a[0]!='w' and a[0]!=color):
+        return 0
+    if len(a)==1:
+        return 1
+    return 1+count(color,a[1:])
+def bigger(a):
+    return max(count('r',a),count('b',a))
+    for i in range(0,N):
+    array=brea(i,s)
+    print(array)
+    t=bigger(array)
+    print(t)
+    if t-1<N:
+        copy=brea(t,s)
+        copy=copy[::-1]
+        final=bigger(copy)+t
+    else:
+        final=t
+    if final>maxium:
+        maxium=final
